@@ -12,16 +12,17 @@ app = Flask(__name__)
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
-@app.route('/0-hbnb/', strict_slashes=False)
-def hbnb():
-    """ Route to display the hbnb page """
-    cache_id = uuid.uuid4()
-    return render_template('0-hbnb.html', cache_id=cache_id)
-
 @app.teardown_appcontext
 def close_db(error):
     """ Remove the current SQLAlchemy Session """
     storage.close()
+
+@app.route('/2-hbnb/', strict_slashes=False)
+def hbnb():
+    """ Route to display the home page with hbnb Amienitiese """
+    cache_id = uuid.uuid4()
+    amenities = storage.all('Amenity')
+    return render_template('2-hbnb.html', cache_id=cache_id, amenities=amenities)
 
 
 if __name__ == "__main__":

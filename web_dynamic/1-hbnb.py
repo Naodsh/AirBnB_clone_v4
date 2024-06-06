@@ -12,11 +12,12 @@ app = Flask(__name__)
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
-@app.route('/0-hbnb/', strict_slashes=False)
+@app.route('/1-hbnb/', strict_slashes=False)
 def hbnb():
     """ Route to display the hbnb page """
     cache_id = uuid.uuid4()
-    return render_template('0-hbnb.html', cache_id=cache_id)
+    amenities = storage.all('Amenity')
+    return render_template('1-hbnb.html', cache_id=cache_id, amenities=amenities)
 
 @app.teardown_appcontext
 def close_db(error):
