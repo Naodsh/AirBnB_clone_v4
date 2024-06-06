@@ -158,7 +158,29 @@ Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twit
 Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)  
 Jhoan Zamora - [Github](https://github.com/jzamora5) / [Twitter](https://twitter.com/JhoanZamora10)  
 David Ovalle - [Github](https://github.com/Nukemenonai) / [Twitter](https://twitter.com/disartDave)
-
-Second part of Airbnb: Joann Vuong
+Second part of Airbnb: Joann Vuog
+Naod Shiferaw - [Github](https://github.com/Naodsh)
 ## License
-Public Domain. No copy write protection. 
+Public Domain. No copy write protection.
+# AirBnB_clone_v4
+
+This is a continuation of the AirBnB clone project. It contains new features and improvements over the previous version (AirBnB_clone_v3).
+
+## Author
+Naod Shiferaw - [Github](https://github.com/Naodsh)
+## New Contributions
+- Implemented API documentation using Flasgger.
+- Enhanced README with detailed instructions and contribution guidelines.
+- Refactored parts of the code for better readability and performance.
+- Added additional tests to ensure code reliability.
+
+## Installation
+To install the required packages, including Flasgger, run:
+```bash
+sudo pip3 install flasgger
+mportant Notes:
+- Replace `YOUR_GITHUB_USERNAME` with your actual GitHub username.
+- Provide any other necessary usage instructions or project details as you see fit.
+
+By following these steps, you'll have successfully updated and improved the AirBnB clone project, making it ready for further development and contributions.
+
