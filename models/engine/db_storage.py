@@ -3,16 +3,14 @@
 Contains the class DBStorage
 """
 
-import models
-from models.amenity import Amenity
 from models.base_model import BaseModel, Base
+from models.amenity import Amenity
 from models.city import City
 from models.place import Place
 from models.review import Review
 from models.state import State
 from models.user import User
 from os import getenv
-import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
@@ -41,15 +39,15 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """query on the current database session"""
-        new_dict = {}
-        for clss in classes:
-            if cls is None or cls is classes[clss] or cls is clss:
-                objs = self.__session.query(classes[clss]).all()
-                for obj in objs:
-                    key = obj.__class__.__name__ + '.' + obj.id
-                    new_dict[key] = obj
-        return (new_dict)
+        """Query on the current database session"""
+        if cls is None:
+            return {**self.__session.query(State).all(),
+                    **self.__session.query(City).all(),
+                    **self.__session.query(User).all(),
+                    **self.__session.query(Place).all(),
+                    **self.__session.query(Review).all(),
+                    **self.__session.query(Amenity).all()}
+        return {obj.id: obj for obj in self.__session.query(cls).all()
 
     def new(self, obj):
         """add the object to the current database session"""
